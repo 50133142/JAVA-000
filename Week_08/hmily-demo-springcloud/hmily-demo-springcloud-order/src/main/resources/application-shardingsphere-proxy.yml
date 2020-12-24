@@ -1,0 +1,37 @@
+
+schemaName: t_order_info
+
+dataSources:
+  ds_0:
+    url: jdbc:mysql://114.67.171.251:3341/hmily_order01?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 300
+  ds_1:
+    url: jdbc:mysql://114.67.171.251:3341/hmily_order02?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 300
+
+
+shardingRule:
+  tables:
+    t_order:
+      actualDataNodes: ds_${0..1}.t_order_$->{0..15}
+      databaseStrategy:
+        inline:
+          shardingColumn: user_id
+          algorithmExpression: ds_${user_id % 2}
+      tableStrategy:
+        inline:
+          shardingColumn: id
+          algorithmExpression: t_order_${id % 16}
+      keyGenerator:
+        type: SNOWFLAKE
+        column: id

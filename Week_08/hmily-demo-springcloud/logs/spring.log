@@ -1,0 +1,38 @@
+2020-12-09 22:09:32.422  INFO 66752 --- [main] h.d.s.o.SpringCloudHmilyOrderApplication : No active profile set, falling back to default profiles: default
+2020-12-09 22:09:40.349 ERROR 66752 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Configuration property name 'spring.shardingsphere.datasource.primary_ds' is not valid:
+
+    Invalid characters: '_'
+    Bean: org.apache.shardingsphere.spring.boot.SpringBootConfiguration
+    Reason: Canonical names should be kebab-case ('-' separated), lowercase alpha-numeric characters and must start with a letter
+
+Action:
+
+Modify 'spring.shardingsphere.datasource.primary_ds' so that it conforms to the canonical names requirements.
+
+2020-12-09 22:12:31.046  INFO 72672 --- [main] h.d.s.o.SpringCloudHmilyOrderApplication : No active profile set, falling back to default profiles: default
+2020-12-09 22:12:35.447 ERROR 72672 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Configuration property name 'spring.shardingsphere.datasource.replica_ds-0' is not valid:
+
+    Invalid characters: '_'
+    Bean: org.apache.shardingsphere.spring.boot.SpringBootConfiguration
+    Reason: Canonical names should be kebab-case ('-' separated), lowercase alpha-numeric characters and must start with a letter
+
+Action:
+
+Modify 'spring.shardingsphere.datasource.replica_ds-0' so that it conforms to the canonical names requirements.
+
